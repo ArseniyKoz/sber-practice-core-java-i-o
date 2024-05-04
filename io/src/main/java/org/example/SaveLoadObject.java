@@ -2,7 +2,7 @@ package org.example;
 
 import java.io.*;
 
-class Hero implements Serializable {
+class Hero {
     String name;
     int level;
     Weapon weapon;
@@ -16,14 +16,16 @@ class Hero implements Serializable {
     }
 
     public String toString() {
-        System.out.println("Имя: " + name);
-        System.out.println("Уровень: " + level);
-        System.out.println("Оружие: " + weapon.getName());
-        System.out.println("Броня: " + armor.getName());
+        String res = null;
+        res += "Имя: " + name + "\n";
+        res += "Уровень: " + level + "\n";
+        res += "Оружие: " + weapon.getName() + "\n";
+        res += "Броня: " + armor.getName() + "\n";
+        return res;
     }
 }
 
-class Weapon implements Serializable {
+class Weapon{
     private String name;
 
     public Weapon(String name) {
@@ -35,7 +37,7 @@ class Weapon implements Serializable {
     }
 }
 
-class Armor implements Serializable {
+class Armor {
     private String name;
 
     public Armor(String name) {
@@ -60,7 +62,8 @@ public class SaveLoadObject {
             Hero loadedHero = (Hero) in.readObject();
             in.close();
 
-            loadedHero.toString();
+            String result = loadedHero.toString();
+            System.out.println(result);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
