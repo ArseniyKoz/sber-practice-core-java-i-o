@@ -2,7 +2,7 @@ package org.example;
 
 import java.io.*;
 
-class Hero {
+class Hero implements Serializable{
     String name;
     int level;
     Weapon weapon;
@@ -16,8 +16,7 @@ class Hero {
     }
 
     public String toString() {
-        String res = null;
-        res += "Имя: " + name + "\n";
+        String res = "Имя: " + name + "\n";
         res += "Уровень: " + level + "\n";
         res += "Оружие: " + weapon.getName() + "\n";
         res += "Броня: " + armor.getName() + "\n";
@@ -25,7 +24,7 @@ class Hero {
     }
 }
 
-class Weapon{
+class Weapon implements Serializable{
     private String name;
 
     public Weapon(String name) {
@@ -37,7 +36,7 @@ class Weapon{
     }
 }
 
-class Armor {
+class Armor implements Serializable{
     private String name;
 
     public Armor(String name) {
